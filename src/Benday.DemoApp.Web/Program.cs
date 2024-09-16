@@ -7,7 +7,7 @@ builder.Services.AddControllersWithViews();
 
 
 // if you want the demo to fail, comment out the following line
-// builder.Services.AddTransient<IDecisionService, CoolNotCoolDecisionService>();
+builder.Services.AddTransient<IDecisionService, CoolNotCoolDecisionService>();
 
 var app = builder.Build();
 
