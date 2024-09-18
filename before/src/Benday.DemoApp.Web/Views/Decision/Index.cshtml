@@ -1,0 +1,71 @@
+﻿@model Benday.DemoApp.Api.DecisionResponse
+
+@{
+    ViewData["Title"] = "Decision Central";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Cool or not cool?</h1>
+</div>
+
+<form asp-action="Index" asp-controller="Decision" method="post">
+
+    @if (Model == null || Model.HasDecision == false)
+    {
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-info" role="alert">
+                    No decision has been made yet.
+                </div>
+            </div>
+        </div>
+    }
+    else if (Model.HasDecision == true)
+    {
+        <div class="border p-3 mb-3">
+            <fieldset>
+                <legend>The result for &quot;@Model.ItemToCheck&quot; is...</legend>
+                
+                @if (Model.IsCool == true)
+                {
+                    <div class="row">
+                        <div class="col">
+                            <div class="alert alert-primary">
+                                It's cool!
+                            </div>
+
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col">
+                            <div class="alert alert-warning">
+                                It's NOT cool.
+                            </div>
+                        </div>
+                    </div>
+                }
+            </fieldset>
+        </div>
+
+    }
+
+    <div class="border p-3">
+        <fieldset>
+            <legend>Is it cool or not cool?</legend>
+
+            <div class="input-group">
+                <input type="text"
+                       placeholder="Enter something to check for 'cool' or 'not cool'"
+                       class="form-control"
+                       id="itemToCheck"
+                       name="itemToCheck"
+                       aria-label="item to check"
+                       aria-describedby="button-check-it" />
+                <button type="submit" class="btn btn-primary" id="button-check-it">Check it</button>
+            </div>
+        </fieldset>
+    </div>
+</form>

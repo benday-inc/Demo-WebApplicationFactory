@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AB80EB76-1157-4C79-B27B-906A71AF94A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benday.DemoApp.Web", "src\Benday.DemoApp.Web\Benday.DemoApp.Web.csproj", "{9EA6A7FF-3C80-4AF6-840B-4FE90E88A1C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benday.DemoApp.Api", "src\Benday.DemoApp.Api\Benday.DemoApp.Api.csproj", "{BD4B4ABA-1069-45A0-AA7A-BE421B5E7DD3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{20EB57A3-1AE3-4B0C-BA99-1F4F49054277}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benday.DemoApp.UnitTests", "test\Benday.DemoApp.UnitTests\Benday.DemoApp.UnitTests.csproj", "{556C8F63-9423-40B6-BAB8-63D4A438FB83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benday.DemoApp.IntegrationTests", "test\Benday.DemoApp.IntegrationTests\Benday.DemoApp.IntegrationTests.csproj", "{6DC61FF9-0231-4E69-B227-0A8A2070E014}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EA6A7FF-3C80-4AF6-840B-4FE90E88A1C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EA6A7FF-3C80-4AF6-840B-4FE90E88A1C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EA6A7FF-3C80-4AF6-840B-4FE90E88A1C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EA6A7FF-3C80-4AF6-840B-4FE90E88A1C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD4B4ABA-1069-45A0-AA7A-BE421B5E7DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD4B4ABA-1069-45A0-AA7A-BE421B5E7DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD4B4ABA-1069-45A0-AA7A-BE421B5E7DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD4B4ABA-1069-45A0-AA7A-BE421B5E7DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{556C8F63-9423-40B6-BAB8-63D4A438FB83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{556C8F63-9423-40B6-BAB8-63D4A438FB83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{556C8F63-9423-40B6-BAB8-63D4A438FB83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{556C8F63-9423-40B6-BAB8-63D4A438FB83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC61FF9-0231-4E69-B227-0A8A2070E014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC61FF9-0231-4E69-B227-0A8A2070E014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC61FF9-0231-4E69-B227-0A8A2070E014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC61FF9-0231-4E69-B227-0A8A2070E014}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9EA6A7FF-3C80-4AF6-840B-4FE90E88A1C7} = {AB80EB76-1157-4C79-B27B-906A71AF94A6}
+		{BD4B4ABA-1069-45A0-AA7A-BE421B5E7DD3} = {AB80EB76-1157-4C79-B27B-906A71AF94A6}
+		{556C8F63-9423-40B6-BAB8-63D4A438FB83} = {20EB57A3-1AE3-4B0C-BA99-1F4F49054277}
+		{6DC61FF9-0231-4E69-B227-0A8A2070E014} = {20EB57A3-1AE3-4B0C-BA99-1F4F49054277}
+	EndGlobalSection
+EndGlobal
