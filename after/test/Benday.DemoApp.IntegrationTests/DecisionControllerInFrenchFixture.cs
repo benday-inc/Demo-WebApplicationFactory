@@ -1,6 +1,8 @@
 ﻿using Benday.DemoApp.Api;
 using Benday.DemoApp.Web;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +10,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Benday.DemoApp.IntegrationTests;
-public class DecisionControllerFixture
+public class DecisionControllerInFrenchFixture
 {
     [Fact]
     public async Task Index_Get_ReturnsSuccess()
     {
         // arrange
-        var factory = new WebApplicationFactory<JustAnEmptyClass>();
+        var factory = GetFactoryInstance();
+
+        // ChangeServiceToFrench(factory);
 
         var client = factory.CreateClient();
 
@@ -35,15 +39,15 @@ public class DecisionControllerFixture
     }
 
     [Fact]
-    public async Task Index_Post_Cool_IsCool()
+    public async Task Index_Post_Froid_IsFroid()
     {
         // arrange
-        var factory = new WebApplicationFactory<JustAnEmptyClass>();
+        var factory = GetFactoryInstance();
 
         var client = factory.CreateClient();
 
         var formValueName = "itemToCheck";
-        var formValue = "cool";
+        var formValue = "Froid";
 
         var contentToPost = new FormUrlEncodedContent(
             new Dictionary<string, string>
@@ -51,7 +55,7 @@ public class DecisionControllerFixture
                 { formValueName, formValue }
             });
 
-        var expected = CoolNotCoolDecisionService.ReasonCool;
+        var expected = CoolNotCoolDecisionInFrenchService.ReasonFroid;
 
         // act
         var response = await client.PostAsync("decision/", contentToPost);
@@ -67,10 +71,10 @@ public class DecisionControllerFixture
     }
 
     [Fact]
-    public async Task Index_Post_Blah_IsNotCool()
+    public async Task Index_Post_Blah_IsNotFroid()
     {
         // arrange
-        var factory = new WebApplicationFactory<JustAnEmptyClass>();
+        var factory = GetFactoryInstance();
 
         var client = factory.CreateClient();
 
@@ -83,7 +87,7 @@ public class DecisionControllerFixture
                 { formValueName, formValue }
             });
 
-        var expected = CoolNotCoolDecisionService.ReasonNotCool;
+        var expected = CoolNotCoolDecisionInFrenchService.ReasonPasFroid;
 
         // act
         var response = await client.PostAsync("decision/", contentToPost);
@@ -96,5 +100,19 @@ public class DecisionControllerFixture
         response.EnsureSuccessStatusCode();
 
         Assert.Contains(expected, content);
+    }
+
+    private static WebApplicationFactory<JustAnEmptyClass> GetFactoryInstance()
+    {
+        var factory = new WebApplicationFactory<JustAnEmptyClass>().WithWebHostBuilder(config =>
+        {
+            config.ConfigureServices(services =>
+            {
+                // replace the default decision service with the French version
+                services.RemoveAll(typeof(Benday.DemoApp.Api.IDecisionService));
+                services.AddScoped<Benday.DemoApp.Api.IDecisionService, Benday.DemoApp.Api.CoolNotCoolDecisionInFrenchService>();
+            });
+        });
+        return factory;
     }
 }

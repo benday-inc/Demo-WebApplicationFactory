@@ -2,6 +2,9 @@
 
 public class CoolNotCoolDecisionInFrenchService : IDecisionService
 {
+    public const string ReasonFroid = "Il fait froid!";
+    public const string ReasonPasFroid = "Il ne fait pas froid.";
+
     public DecisionResponse Decide(DecisionRequest request)
     {
         if (string.IsNullOrEmpty(request.ItemToCheck) == true)
@@ -26,7 +29,7 @@ public class CoolNotCoolDecisionInFrenchService : IDecisionService
             {
                 HasDecision = true,
                 IsCool = true,
-                Reason = "Il fait froid.",
+                Reason = ReasonFroid,
                 ItemToCheck = request.ItemToCheck
             };
         }
@@ -36,7 +39,7 @@ public class CoolNotCoolDecisionInFrenchService : IDecisionService
             {
                 HasDecision = true,
                 IsCool = false,
-                Reason = "Il ne fait pas froid.",
+                Reason = ReasonPasFroid,
                 ItemToCheck = request.ItemToCheck
             };
         }

@@ -33,9 +33,9 @@ public class DecisionServiceInFrenchFixture
     }
 
     [Theory]
-    [InlineData("froid", true, "Il fait froid.")]
-    [InlineData("chaud", false, "Il ne fait pas froid.")]
-    [InlineData("asdfasdf", false, "Il ne fait pas froid.")]
+    [InlineData("froid", true, CoolNotCoolDecisionInFrenchService.ReasonFroid)]
+    [InlineData("chaud", false, CoolNotCoolDecisionInFrenchService.ReasonPasFroid)]
+    [InlineData("asdfasdf", false, CoolNotCoolDecisionInFrenchService.ReasonPasFroid)]
     public void Decide_EmptyString_NotCool(string item, bool expectedIsCool, string expectedReason)
     {
         // arrange
